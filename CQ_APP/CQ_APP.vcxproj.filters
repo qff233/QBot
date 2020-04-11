@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="appmain.cpp" />
+    <ClCompile Include="Msg.cpp" />
+    <ClCompile Include="源.cpp" />
+    <ClCompile Include="appinfo.h" />
+    <ClCompile Include="app.cpp" />
+    <ClCompile Include="time_manager.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="config.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="common.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="repeat.cpp">
+      <Filter>command</Filter>
+    </ClCompile>
+    <ClCompile Include="ping.cpp">
+      <Filter>command</Filter>
+    </ClCompile>
+    <ClCompile Include="reload.cpp">
+      <Filter>command</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="appVer.h" />
+    <ClInclude Include="app.h" />
+    <ClInclude Include="time_manager.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="singleton.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="common.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="config.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="repeat.h">
+      <Filter>command</Filter>
+    </ClInclude>
+    <ClInclude Include="ping.h">
+      <Filter>command</Filter>
+    </ClInclude>
+    <ClInclude Include="reload.h">
+      <Filter>command</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="util">
+      <UniqueIdentifier>{bf327e03-aa17-40b6-a69e-104c80d013bd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="command">
+      <UniqueIdentifier>{45c9f2ea-f2b9-4a37-96cf-5d79a39ef027}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
