@@ -1,7 +1,7 @@
 #include <CQSDK.h>
 #include "appinfo.h"
 
-#include "common.h"
+#include "util/common.h"
 
 MUST_AppInfo_RETURN(APP_ID)
 

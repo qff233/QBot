@@ -7,48 +7,48 @@
     <ClCompile Include="源.cpp" />
     <ClCompile Include="appinfo.h" />
     <ClCompile Include="app.cpp" />
-    <ClCompile Include="time_manager.cpp">
-      <Filter>util</Filter>
-    </ClCompile>
-    <ClCompile Include="config.cpp">
-      <Filter>util</Filter>
-    </ClCompile>
-    <ClCompile Include="common.cpp">
-      <Filter>util</Filter>
-    </ClCompile>
-    <ClCompile Include="repeat.cpp">
+    <ClCompile Include="command\ping.cpp">
       <Filter>command</Filter>
     </ClCompile>
-    <ClCompile Include="ping.cpp">
+    <ClCompile Include="command\repeat.cpp">
       <Filter>command</Filter>
     </ClCompile>
-    <ClCompile Include="reload.cpp">
+    <ClCompile Include="command\reload.cpp">
       <Filter>command</Filter>
+    </ClCompile>
+    <ClCompile Include="util\common.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="util\config.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="util\time_manager.cpp">
+      <Filter>util</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="appVer.h" />
     <ClInclude Include="app.h" />
-    <ClInclude Include="time_manager.h">
-      <Filter>util</Filter>
-    </ClInclude>
-    <ClInclude Include="singleton.h">
-      <Filter>util</Filter>
-    </ClInclude>
-    <ClInclude Include="common.h">
-      <Filter>util</Filter>
-    </ClInclude>
-    <ClInclude Include="config.h">
-      <Filter>util</Filter>
-    </ClInclude>
     <ClInclude Include="repeat.h">
       <Filter>command</Filter>
     </ClInclude>
-    <ClInclude Include="ping.h">
+    <ClInclude Include="command\ping.h">
       <Filter>command</Filter>
     </ClInclude>
-    <ClInclude Include="reload.h">
+    <ClInclude Include="command\reload.h">
       <Filter>command</Filter>
+    </ClInclude>
+    <ClInclude Include="util\common.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="util\singleton.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="util\time_manager.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="util\config.h">
+      <Filter>util</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

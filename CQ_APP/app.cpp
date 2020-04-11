@@ -1,7 +1,7 @@
 #include "app.h"
-#include "ping.h"
-#include "repeat.h"
-#include "reload.h"
+#include "command/ping.h"
+#include "command/repeat.h"
+#include "command/reload.h"
 
 namespace qff233 {
 

@@ -14,30 +14,26 @@
     <ClCompile Include="app.cpp" />
     <ClCompile Include="appinfo.h" />
     <ClCompile Include="appmain.cpp" />
-    <ClInclude Include="config.h">
-      <FileType>CppCode</FileType>
-    </ClInclude>
-    <ClCompile Include="common.cpp" />
+    <ClInclude Include="command\ping.h" />
+    <ClInclude Include="command\reload.h" />
+    <ClCompile Include="command\ping.cpp" />
+    <ClCompile Include="command\reload.cpp" />
+    <ClCompile Include="command\repeat.cpp" />
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="Msg.cpp" />
-    <ClCompile Include="ping.cpp" />
-    <ClCompile Include="reload.cpp" />
-    <ClCompile Include="repeat.cpp" />
-    <ClCompile Include="time_manager.cpp" />
+    <ClCompile Include="util\common.cpp" />
+    <ClCompile Include="util\config.cpp" />
+    <ClCompile Include="util\time_manager.cpp" />
     <ClCompile Include="源.cpp" />
+    <ClInclude Include="util\common.h" />
+    <ClInclude Include="util\config.h" />
+    <ClInclude Include="util\singleton.h" />
+    <ClInclude Include="util\time_manager.h" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="app.h" />
     <ClInclude Include="appVer.h" />
-    <ClInclude Include="common.h" />
-    <ClCompile Include="config.cpp">
-      <FileType>CppHeader</FileType>
-    </ClCompile>
-    <ClInclude Include="ping.h" />
-    <ClInclude Include="reload.h" />
     <ClInclude Include="repeat.h" />
-    <ClInclude Include="singleton.h" />
-    <ClInclude Include="time_manager.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>

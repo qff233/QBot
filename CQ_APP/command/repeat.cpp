@@ -1,5 +1,5 @@
 #include "repeat.h"
-#include "common.h"
+#include "../util/common.h"
 
 namespace qff233 {
 namespace command {

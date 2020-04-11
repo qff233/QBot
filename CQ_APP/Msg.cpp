@@ -4,8 +4,8 @@
 
 #include <CQSDK.h>
 #include <string>
-#include "common.h"
-#include "time_manager.h"
+#include "util/common.h"
+#include "util/time_manager.h"
 
 #include "app.h"
 
