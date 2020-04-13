@@ -4,5 +4,7 @@
 #include "util/common.h"
 
 namespace qff233 {
-	void GroupMsgEventHandle(GroupMsgEvent& e);
+	void init();
+	void reload();
+	void handle(MsgEvent& e);
 }

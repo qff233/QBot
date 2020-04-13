@@ -2,6 +2,7 @@
 #include "appinfo.h"
 
 #include "util/common.h"
+#include "app.h"
 
 MUST_AppInfo_RETURN(APP_ID)
 
@@ -9,7 +10,6 @@ MUST_AppInfo_RETURN(APP_ID)
 
 //请加上static,表示这个logger只有本cpp有效
 static Logger logger("酷Q样例应用");
-
 
 
 EVE_Startup_EX(Startup)
@@ -28,7 +28,7 @@ priority为事件优先级(参见 cq.im/deveventpriority)
 {
 	logger.Info("Startup");
 	qff233::InitLogger();
-	qff233::Config::LoadConfigFromFile("config.ini");
+	qff233::init();
 	//本函数在执行周期最多只会执行一次
 	//可以在这里加载全局资源
 }
@@ -74,10 +74,3 @@ EVE_Exit_EX(Exit)
 	logger.Info("Exit");
 	//本函数执行以后,酷Q会短时间内结束运行
 }
-
-
-
-
-
-
-//接下来请转向 Msg.cpp 以继续

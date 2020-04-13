@@ -5,13 +5,13 @@
 #include <set>
 
 namespace qff233 {
-namespace command {
+namespace handle_event {
 	class Repeat {
 	private:
 		struct status;
 	public:
 		typedef std::unordered_map<long long, status> MapType;
-		static bool handle(GroupMsgEvent& e);
+		static void run(MsgEvent* e);
 	private:
 		struct status {
 			status() = default;
@@ -27,6 +27,8 @@ namespace command {
 			std::set<long long> accounts;
 			bool hasRepeat = false;
 		};
+
+
 		static MapType& GetDatas() {
 			static  MapType m_datas;
 			return m_datas;

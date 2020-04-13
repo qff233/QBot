@@ -10,9 +10,6 @@
     <ClCompile Include="command\ping.cpp">
       <Filter>command</Filter>
     </ClCompile>
-    <ClCompile Include="command\repeat.cpp">
-      <Filter>command</Filter>
-    </ClCompile>
     <ClCompile Include="command\reload.cpp">
       <Filter>command</Filter>
     </ClCompile>
@@ -25,13 +22,18 @@
     <ClCompile Include="util\time_manager.cpp">
       <Filter>util</Filter>
     </ClCompile>
+    <ClCompile Include="command.cpp" />
+    <ClCompile Include="handle_event\repeat.cpp">
+      <Filter>handle_event</Filter>
+    </ClCompile>
+    <ClCompile Include="admin_list.cpp" />
+    <ClCompile Include="command\admin.cpp">
+      <Filter>command</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="appVer.h" />
     <ClInclude Include="app.h" />
-    <ClInclude Include="repeat.h">
-      <Filter>command</Filter>
-    </ClInclude>
     <ClInclude Include="command\ping.h">
       <Filter>command</Filter>
     </ClInclude>
@@ -50,6 +52,14 @@
     <ClInclude Include="util\config.h">
       <Filter>util</Filter>
     </ClInclude>
+    <ClInclude Include="command.h" />
+    <ClInclude Include="handle_event\repeat.h">
+      <Filter>handle_event</Filter>
+    </ClInclude>
+    <ClInclude Include="admin_list.h" />
+    <ClInclude Include="command\admin.h">
+      <Filter>command</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="util">
@@ -57,6 +67,9 @@
     </Filter>
     <Filter Include="command">
       <UniqueIdentifier>{45c9f2ea-f2b9-4a37-96cf-5d79a39ef027}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="handle_event">
+      <UniqueIdentifier>{12ad94a5-8834-438b-ab57-d7248bb0cc83}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
