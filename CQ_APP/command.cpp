@@ -118,7 +118,7 @@ CommandDispatch::getMatchedCommand(const std::string& name)
 	}
 	for (auto it = m_globs.begin(); it != m_globs.end(); ++it)
 	{
-		if (it->first == name) {
+		if (name.substr(0, it->first.size()) == it->first) {
 			return it->second;
 		}
 	}
