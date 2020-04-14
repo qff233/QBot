@@ -30,6 +30,12 @@
     <ClCompile Include="command\admin.cpp">
       <Filter>command</Filter>
     </ClCompile>
+    <ClCompile Include="socket\socket.cpp">
+      <Filter>socket</Filter>
+    </ClCompile>
+    <ClCompile Include="socket\address.cpp">
+      <Filter>socket</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="appVer.h" />
@@ -60,6 +66,12 @@
     <ClInclude Include="command\admin.h">
       <Filter>command</Filter>
     </ClInclude>
+    <ClInclude Include="socket\socket.h">
+      <Filter>socket</Filter>
+    </ClInclude>
+    <ClInclude Include="socket\address.h">
+      <Filter>socket</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="util">
@@ -70,6 +82,9 @@
     </Filter>
     <Filter Include="handle_event">
       <UniqueIdentifier>{12ad94a5-8834-438b-ab57-d7248bb0cc83}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="socket">
+      <UniqueIdentifier>{0613f390-7bc2-40a8-a30f-ad59c98eb96c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

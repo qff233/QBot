@@ -2,6 +2,7 @@
 #include <fstream>
 
 #include "util/time_manager.h"
+#include "util//common.h"
 
 namespace qff233 
 {
@@ -135,7 +136,12 @@ NotFoundCommand::NotFoundCommand(const std::string& name)
 		m_isError = true;
 		return;
 	}
-	ss >> m_help;
+	std::string str;
+	while (std::getline(ss, str))
+	{
+		m_help += (str + "\n");
+	}
+	m_help = utf82gbk(m_help.c_str());
 	ss.close();
 }
 
@@ -161,7 +167,12 @@ NotFoundCommand::reload()
 		m_isError = true;
 		return;
 	}
-	ss >> m_help;
+	std::string str;
+	while (std::getline(ss, str))
+	{
+		m_help += (str + "\n");
+	}
+	m_help = utf82gbk(m_help.c_str());
 	ss.close();
 }
 

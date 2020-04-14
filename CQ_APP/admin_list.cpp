@@ -36,7 +36,7 @@ AdminList::addAdmin(int64_t v)
 		GetLogger()->Error("open adminlist.txt error");
 		return false;
 	}
-	ss << v << std::endl;
+	ss << v << '\n';
 	ss.close();
 
 	m_list.push_back(v);
@@ -47,25 +47,44 @@ bool
 AdminList::delAdmin(int64_t v)
 {
 	std::string str;
-	std::fstream ss;
-	ss.open("adminlist.txt");
+	std::ifstream ss;
+	ss.open("adminlist.txt", std::ios::in);
 	if (!ss.is_open()) {
 		GetLogger()->Error("open adminlist.txt error");
 		return false;
 	}
-	ss >> str;
+	std::string tmp;
+	while (std::getline(ss, tmp)) {
+		str += (tmp + '\n');
+	}
+	ss.close();
+	//*****
+	GetLogger()->Debug(str);
 	std::string vv = std::to_string(v);
 	size_t begin = str.find(vv);
-	str.erase(begin, vv.size());
-	ss << str;
-	ss.close();
+	if (begin == std::string::npos) {
+		throw std::invalid_argument("文件中找不到此账号");
+		return false;
+	}
+	str.erase(begin, vv.size() + 1);
+	//*****
+	GetLogger()->Debug(str + "    处理完");
+	std::ofstream ss1;
+	ss1.open("adminlist.txt", std::ios::out | std::ios::trunc);
+	if (!ss1.is_open()) {
+		throw std::invalid_argument("打开adminlist失败！");
+		return false;
+	}
+	ss1 << str;
+	ss1.close();
 
 	for (auto it = m_list.begin(); it != m_list.end(); ++it) {
 		if (*it == v) {
 			m_list.erase(it);
+			return true;
 		}
 	}
-	return true;
+	return false;
 }
 
 void
@@ -78,6 +97,7 @@ AdminList::reload()
 		GetLogger()->Error("open adminlist.txt error");
 		return;
 	}
+	m_list.clear();
 	while (std::getline(ss, str))
 	{
 		try {
