@@ -27,6 +27,9 @@ namespace command
 			return;
 		}
 		std::string str = e.message.substr(13, e.message.size() - 13);
+		if (str[0] == '[') {
+			str = str.substr(10, str.size() - 11);
+		}
 		try {
 			int64_t account = std::stoll(str);
 			if (account == *AdminListMgr::GetInstance()) {

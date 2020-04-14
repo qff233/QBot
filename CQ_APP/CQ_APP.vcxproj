@@ -26,6 +26,7 @@
     <ClCompile Include="command\reload.cpp" />
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="handle_event\repeat.cpp" />
+    <ClCompile Include="http\http.cpp" />
     <ClCompile Include="Msg.cpp" />
     <ClCompile Include="socket\address.cpp" />
     <ClCompile Include="socket\socket.cpp" />
@@ -34,8 +35,10 @@
     <ClCompile Include="util\time_manager.cpp" />
     <ClCompile Include="源.cpp" />
     <ClInclude Include="handle_event\repeat.h" />
+    <ClInclude Include="http\http.h" />
     <ClInclude Include="socket\address.h" />
     <ClInclude Include="socket\socket.h" />
+    <ClInclude Include="util.h" />
     <ClInclude Include="util\common.h" />
     <ClInclude Include="util\config.h" />
     <ClInclude Include="util\singleton.h" />

@@ -36,6 +36,9 @@
     <ClCompile Include="socket\address.cpp">
       <Filter>socket</Filter>
     </ClCompile>
+    <ClCompile Include="http\http.cpp">
+      <Filter>http</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="appVer.h" />
@@ -72,6 +75,10 @@
     <ClInclude Include="socket\address.h">
       <Filter>socket</Filter>
     </ClInclude>
+    <ClInclude Include="http\http.h">
+      <Filter>http</Filter>
+    </ClInclude>
+    <ClInclude Include="util.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="util">
@@ -85,6 +92,9 @@
     </Filter>
     <Filter Include="socket">
       <UniqueIdentifier>{0613f390-7bc2-40a8-a30f-ad59c98eb96c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="http">
+      <UniqueIdentifier>{5b323dd0-a0a5-4ff3-8163-6b0184729241}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
