@@ -17,14 +17,14 @@ void Reload::handle(MsgEvent& e)
 		return;
 	}
 	if (e.fromAccount != *AdminListMgr::GetInstance()) {
-		e.sendMsg("Ŷ�� �㲻�ǹ���Ա��");
+		e.sendMsg("Å¶»í Äã²»ÊÇ¹ÜÀíÔ±£¡");
 		return;
 	}
 		
 	clock_t start = clock();
 	qff233::reload();
 	clock_t stop = clock();
-	e.sendMsg(std::string("[QBot] Reloaded\nUsed ") + std::to_string(1000 * (stop - start) / CLOCKS_PER_SEC) + " ms");
+	e.sendMsg(std::string("[QBot] Reloaded\nUsed ") + std::to_string((stop - start) / CLOCKS_PER_SEC) + " ms");
 	e.message_block();
 	return;
 }
