@@ -24,7 +24,9 @@
     <ClCompile Include="command\admin.cpp" />
     <ClCompile Include="command\ping.cpp" />
     <ClCompile Include="command\reload.cpp" />
+    <ClCompile Include="command\test.cpp" />
     <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="file_store.cpp" />
     <ClCompile Include="handle_event\repeat.cpp" />
     <ClCompile Include="http\http.cpp" />
     <ClCompile Include="Msg.cpp" />
@@ -34,6 +36,8 @@
     <ClCompile Include="util\config.cpp" />
     <ClCompile Include="util\time_manager.cpp" />
     <ClCompile Include="源.cpp" />
+    <ClInclude Include="command\test.h" />
+    <ClInclude Include="file_store.h" />
     <ClInclude Include="handle_event\repeat.h" />
     <ClInclude Include="http\http.h" />
     <ClInclude Include="socket\address.h" />

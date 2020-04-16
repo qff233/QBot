@@ -8,16 +8,20 @@ EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
 		Debug|x86 = Debug|x86
 		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{66585B15-2064-4CA7-8836-CA73E7FCB7BE}.Debug|Any CPU.ActiveCfg = Debug|Win32
 		{66585B15-2064-4CA7-8836-CA73E7FCB7BE}.Debug|Any CPU.Build.0 = Debug|Win32
+		{66585B15-2064-4CA7-8836-CA73E7FCB7BE}.Debug|x64.ActiveCfg = Debug|Win32
 		{66585B15-2064-4CA7-8836-CA73E7FCB7BE}.Debug|x86.ActiveCfg = Debug|Win32
 		{66585B15-2064-4CA7-8836-CA73E7FCB7BE}.Debug|x86.Build.0 = Debug|Win32
 		{66585B15-2064-4CA7-8836-CA73E7FCB7BE}.Release|Any CPU.ActiveCfg = Release|Win32
+		{66585B15-2064-4CA7-8836-CA73E7FCB7BE}.Release|x64.ActiveCfg = Release|Win32
 		{66585B15-2064-4CA7-8836-CA73E7FCB7BE}.Release|x86.ActiveCfg = Release|Win32
 		{66585B15-2064-4CA7-8836-CA73E7FCB7BE}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection

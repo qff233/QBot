@@ -2,7 +2,9 @@
 #include <fstream>
 
 #include "util/time_manager.h"
-#include "util//common.h"
+#include "util/common.h"
+#include "file_store.h"
+
 
 namespace qff233 
 {
@@ -127,53 +129,22 @@ CommandDispatch::getMatchedCommand(const std::string& name)
 }
 
 NotFoundCommand::NotFoundCommand(const std::string& name)
-	:Command("NotFoundCommand"),
-	m_name(name)
-{ 
-	std::ifstream ss;
-	ss.open("help.txt");
-	if (!ss.is_open()) {
-		m_isError = true;
-		return;
-	}
-	std::string str;
-	while (std::getline(ss, str))
-	{
-		m_help += (str + "\n");
-	}
-	m_help = utf82gbk(m_help.c_str());
-	ss.close();
+	:Command("NotFoundCommand")
+{
+	//FileStoreMgr::GetInstance()->AddFile<qff233::FileStoreString>("NotFoundCommand", "help.txt");
 }
 
 void
 NotFoundCommand::handle(CQ::MsgEvent& e)
 {
-	if (m_isError) {
-		if (!m_isSend) {
-			e.sendMsg("°ïÖúÎÄµµ³õÊ¼»¯Ê§°Ü");
-			m_isSend = true;
-		}
-		return;
+	try {
+		auto it = FileStoreMgr::GetInstance()->GetFile<qff233::FileStoreString>("NotFoundCommand");
+		const std::string& msg = it->getContent();
+		e.sendMsg(msg);
 	}
-	e.sendMsg(m_help);
-}
-
-void 
-NotFoundCommand::reload()
-{
-	std::ifstream ss;
-	ss.open("help.txt");
-	if (!ss.is_open()) {
-		m_isError = true;
-		return;
+	catch(const std::exception& e){
+		qff233::GetLogger()->Debug(e.what());
 	}
-	std::string str;
-	while (std::getline(ss, str))
-	{
-		m_help += (str + "\n");
-	}
-	m_help = utf82gbk(m_help.c_str());
-	ss.close();
 }
 
 }

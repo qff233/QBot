@@ -76,11 +76,7 @@ public:
 
 	NotFoundCommand(const std::string& name);
 	void handle(CQ::MsgEvent& e) override;
-	void reload();
 private:
-	std::string m_name;
-	std::string m_help;
-	bool m_isError = false;
 	bool m_isSend = false;
 };
 

@@ -1,20 +1,49 @@
 #include "app.h"
+#include "file_store.h"
 #include "admin_list.h"
 #include "handle_event/repeat.h"
 #include "command/ping.h"
 #include "command/reload.h"
-#include "command//admin.h"
+#include "command/admin.h"
+#include "command/test.h"
 
 namespace qff233 {
 
 void init()
 {
-	qff233::Config::LoadConfigFromFile("config.ini");
-	auto cmdMgr = qff233::CommandMgr::GetInstance();
+	auto fileMgr = qff233::FileStoreMgr::GetInstance();
+#define ADDFILESTORE(type, name, file_name) \
+	fileMgr->AddFile<qff233::type>(name, file_name)
 
+	ADDFILESTORE(FileStoreString , "NotFoundCommand", "help.txt");
+	ADDFILESTORE(FileStoreInt64, "AdminList", "adminlist.txt");
+	ADDFILESTORE(FileStoreString, "AdminHelp", "adminhelp.txt");
+
+	fileMgr->AddCallBack<FileStoreInt64>("AdminList", [](int32_t v) {
+		if (v == 2) {
+			qff233::GetLogger()->Warning("AdminList 文件IO有问题！！");
+		}
+		if (v == 0) {
+			qff233::GetLogger()->Info("AdminList操作成功");
+		}
+		});
+
+	fileMgr->AddCallBack<FileStoreString>("AdminHelp", [](int32_t v) {
+		if (v == 2) {
+			qff233::GetLogger()->Error("AdminHelp 文件IO出问题");
+		}
+		if (v == 0) {
+			qff233::GetLogger()->Info("AdminHelp操作成功！！");
+		}
+		});
+#undef ADDFILESTORE
+
+	qff233::Config::LoadConfigFromFile("config.ini");
+	qff233::FileStoreMgr::GetInstance()->Load();
+
+	auto cmdMgr = qff233::CommandMgr::GetInstance();
 #define ADDCMD(name, clazz) \
 	cmdMgr->addCommand(name, ::qbot::command::clazz::ptr(new ::qbot::command::clazz))
-
 #define ADDGCMD(name, clazz) \
 	cmdMgr->addGlobCommand(name, ::qbot::command::clazz::ptr(new ::qbot::command::clazz))
 
@@ -24,6 +53,7 @@ void init()
 	ADDGCMD(".q admin add", AddAdmin);
 	ADDGCMD(".q admin del", DelAdmin);
 	ADDCMD(".q ping", Ping);
+	ADDCMD(".q test", Test);
 
 #undef ADDCMD
 #undef ADDGCMD
@@ -32,13 +62,12 @@ void init()
 void reload()
 {
 	qff233::Config::LoadConfigFromFile("config.ini");
-	qbot::AdminListMgr::GetInstance()->reload();
-
-	auto help_cmd = qff233::CommandMgr::GetInstance()->getDefault();
-	std::dynamic_pointer_cast<qff233::NotFoundCommand>(help_cmd)->reload();
-
-	auto admin_help_cmd = qff233::CommandMgr::GetInstance()->getCommand(".q admin help");
-	std::dynamic_pointer_cast<qbot::command::AdminHelp>(admin_help_cmd)->reload();
+	qff233::FileStoreMgr::GetInstance()->Load();
+	//qbot::AdminListMgr::GetInstance()->reload();
+	//auto help_cmd = qff233::CommandMgr::GetInstance()->getDefault();
+	//std::dynamic_pointer_cast<qff233::NotFoundCommand>(help_cmd)->reload();
+	//auto admin_help_cmd = qff233::CommandMgr::GetInstance()->getCommand(".q admin help");
+	//std::dynamic_pointer_cast<qbot::command::AdminHelp>(admin_help_cmd)->reload();
 }
 
 void handle(MsgEvent& e)

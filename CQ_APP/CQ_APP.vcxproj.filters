@@ -6,7 +6,6 @@
     <ClCompile Include="Msg.cpp" />
     <ClCompile Include="源.cpp" />
     <ClCompile Include="appinfo.h" />
-    <ClCompile Include="app.cpp" />
     <ClCompile Include="command\ping.cpp">
       <Filter>command</Filter>
     </ClCompile>
@@ -22,7 +21,6 @@
     <ClCompile Include="util\time_manager.cpp">
       <Filter>util</Filter>
     </ClCompile>
-    <ClCompile Include="command.cpp" />
     <ClCompile Include="handle_event\repeat.cpp">
       <Filter>handle_event</Filter>
     </ClCompile>
@@ -31,18 +29,29 @@
       <Filter>command</Filter>
     </ClCompile>
     <ClCompile Include="socket\socket.cpp">
-      <Filter>socket</Filter>
+      <Filter>qff233\socket</Filter>
     </ClCompile>
     <ClCompile Include="socket\address.cpp">
-      <Filter>socket</Filter>
+      <Filter>qff233\socket</Filter>
     </ClCompile>
     <ClCompile Include="http\http.cpp">
-      <Filter>http</Filter>
+      <Filter>qff233\http</Filter>
+    </ClCompile>
+    <ClCompile Include="app.cpp">
+      <Filter>qff233</Filter>
+    </ClCompile>
+    <ClCompile Include="command.cpp">
+      <Filter>qff233</Filter>
+    </ClCompile>
+    <ClCompile Include="file_store.cpp">
+      <Filter>qff233</Filter>
+    </ClCompile>
+    <ClCompile Include="command\test.cpp">
+      <Filter>command</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="appVer.h" />
-    <ClInclude Include="app.h" />
     <ClInclude Include="command\ping.h">
       <Filter>command</Filter>
     </ClInclude>
@@ -61,7 +70,6 @@
     <ClInclude Include="util\config.h">
       <Filter>util</Filter>
     </ClInclude>
-    <ClInclude Include="command.h" />
     <ClInclude Include="handle_event\repeat.h">
       <Filter>handle_event</Filter>
     </ClInclude>
@@ -70,13 +78,25 @@
       <Filter>command</Filter>
     </ClInclude>
     <ClInclude Include="socket\socket.h">
-      <Filter>socket</Filter>
+      <Filter>qff233\socket</Filter>
     </ClInclude>
     <ClInclude Include="socket\address.h">
-      <Filter>socket</Filter>
+      <Filter>qff233\socket</Filter>
     </ClInclude>
     <ClInclude Include="http\http.h">
-      <Filter>http</Filter>
+      <Filter>qff233\http</Filter>
+    </ClInclude>
+    <ClInclude Include="app.h">
+      <Filter>qff233</Filter>
+    </ClInclude>
+    <ClInclude Include="command.h">
+      <Filter>qff233</Filter>
+    </ClInclude>
+    <ClInclude Include="file_store.h">
+      <Filter>qff233</Filter>
+    </ClInclude>
+    <ClInclude Include="command\test.h">
+      <Filter>command</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -89,10 +109,13 @@
     <Filter Include="handle_event">
       <UniqueIdentifier>{12ad94a5-8834-438b-ab57-d7248bb0cc83}</UniqueIdentifier>
     </Filter>
-    <Filter Include="socket">
+    <Filter Include="qff233">
+      <UniqueIdentifier>{a0fd6c49-514d-4c36-bb66-b2b69d1defa2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="qff233\socket">
       <UniqueIdentifier>{0613f390-7bc2-40a8-a30f-ad59c98eb96c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="http">
+    <Filter Include="qff233\http">
       <UniqueIdentifier>{5b323dd0-a0a5-4ff3-8163-6b0184729241}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
