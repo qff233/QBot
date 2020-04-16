@@ -25,7 +25,7 @@
 
 //--------应用信息--------
 
-#define APP_ID "cn.qff233.repeat"
+#define APP_ID "cn.qff233.main"
 //----这是什么----
 //这是您的插件名称,一个独一无二的名称
 //----我应该按照什么原则命名----
@@ -46,7 +46,7 @@ $(SolutionDir)CQ_Json.exe $(ProjectDir) $(TargetDir)
 */
 
 // 应用名称
-#define APP_name "复读插件"
+#define APP_name "Qbot主体插件"
 
 // 应用版本
 #include "appVer.h"
@@ -56,19 +56,19 @@ $(SolutionDir)CQ_Json.exe $(ProjectDir) $(TargetDir)
 
 //一句话描述插件用途
 #define APP_description "Qff233样例应用" //注释不影响解析效果
-#define 填写示例 "示例""""\n第二行,"
+#define 填写示例 "详情查看https://github.com/qff233/QBot"
 //              ↑    ↑           ↑
 //              ↑始终第一个引号开始,无论是否是真实引号
 //                    ↑中间引号全部忽略,与VS解释有所不同
 //                                 ↑直接匹配最后一个引号作为结束
 
 //权限确认,请只保留关键权限.
-//#define APP_auth_20 "取Cookies"//[敏感]
+#define APP_auth_20 "取Cookies"//[敏感]
 //#define APP_auth_30 "接收语音"
 #define APP_auth_101 "发送群消息"
 #define APP_auth_103 "发送讨论组消息"
 #define APP_auth_106 "发送私聊消息"
-//#define APP_auth_110 "发送赞"//[敏感]
+#define APP_auth_110 "发送赞"//[敏感]
 //#define APP_auth_120 "置群员移除"
 //#define APP_auth_121 "置群员禁言"
 //#define APP_auth_122 "置群管理员"
@@ -77,7 +77,7 @@ $(SolutionDir)CQ_Json.exe $(ProjectDir) $(TargetDir)
 //#define APP_auth_125 "置群匿名设置"
 //#define APP_auth_126 "置群成员名片"
 //#define APP_auth_127 "置群退出"//[敏感]
-#define APP_auth_128 "置群成员专属头衔"
+//#define APP_auth_128 "置群成员专属头衔"
 #define APP_auth_130 "取群成员信息"
 #define APP_auth_132 "取群信息"
 #define APP_auth_131 "取陌生人信息"

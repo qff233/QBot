@@ -4,7 +4,7 @@
 
 #include "util/common.h"
 
-namespace qff233
+namespace qbot
 {
 
 AdminList::AdminList()
@@ -13,7 +13,7 @@ AdminList::AdminList()
 	std::string str;
 	ss.open("adminlist.txt");
 	if (!ss.is_open()) {
-		GetLogger()->Error("open adminlist.txt error");
+		qff233::GetLogger()->Error("open adminlist.txt error");
 		return;
 	}
 	while (std::getline(ss, str))
@@ -21,7 +21,7 @@ AdminList::AdminList()
 		try {
 			m_list.push_back(std::stoll(str));
 		} catch (const std::exception& e) {
-			GetLogger()->Error(std::string("Adminlist::Adminlist error  ") + e.what());
+			qff233::GetLogger()->Error(std::string("Adminlist::Adminlist error  ") + e.what());
 		}
 	}
 	ss.close();
@@ -33,7 +33,7 @@ AdminList::addAdmin(int64_t v)
 	std::ofstream ss;
 	ss.open("adminlist.txt", std::ios::app);
 	if (!ss.is_open()) {
-		GetLogger()->Error("open adminlist.txt error");
+		qff233::GetLogger()->Error("open adminlist.txt error");
 		return false;
 	}
 	ss << v << '\n';
@@ -50,7 +50,7 @@ AdminList::delAdmin(int64_t v)
 	std::ifstream ss;
 	ss.open("adminlist.txt", std::ios::in);
 	if (!ss.is_open()) {
-		GetLogger()->Error("open adminlist.txt error");
+		qff233::GetLogger()->Error("open adminlist.txt error");
 		return false;
 	}
 	std::string tmp;
@@ -59,7 +59,7 @@ AdminList::delAdmin(int64_t v)
 	}
 	ss.close();
 	//*****
-	GetLogger()->Debug(str);
+	qff233::GetLogger()->Debug(str);
 	std::string vv = std::to_string(v);
 	size_t begin = str.find(vv);
 	if (begin == std::string::npos) {
@@ -68,7 +68,7 @@ AdminList::delAdmin(int64_t v)
 	}
 	str.erase(begin, vv.size() + 1);
 	//*****
-	GetLogger()->Debug(str + "    处理完");
+	qff233::GetLogger()->Debug(str + "    处理完");
 	std::ofstream ss1;
 	ss1.open("adminlist.txt", std::ios::out | std::ios::trunc);
 	if (!ss1.is_open()) {
@@ -94,7 +94,7 @@ AdminList::reload()
 	std::string str;
 	ss.open("adminlist.txt");
 	if (!ss.is_open()) {
-		GetLogger()->Error("open adminlist.txt error");
+		qff233::GetLogger()->Error("open adminlist.txt error");
 		return;
 	}
 	m_list.clear();
@@ -104,7 +104,7 @@ AdminList::reload()
 			m_list.push_back(std::stoll(str));
 		}
 		catch (const std::exception & e) {
-			GetLogger()->Error(std::string("Adminlist::Adminlist error  ") + e.what());
+			qff233::GetLogger()->Error(std::string("Adminlist::Adminlist error  ") + e.what());
 		}
 	}
 	ss.close();

@@ -2,12 +2,12 @@
 
 #include "../command.h"
 
-namespace qff233 {
+namespace qbot {
 namespace command
 {
 
 
-class AddAdmin : public Command 
+class AddAdmin : public qff233::Command 
 {
 public:
 	typedef std::shared_ptr<AddAdmin> ptr;
@@ -15,7 +15,7 @@ public:
 	void handle(MsgEvent& e) override;
 };
 
-class DelAdmin : public Command 
+class DelAdmin : public qff233::Command 
 {
 public:
 	typedef std::shared_ptr<DelAdmin> ptr;
@@ -23,7 +23,7 @@ public:
 	void handle(MsgEvent& e) override;
 };
 
-class AdminHelp : public Command 
+class AdminHelp : public qff233::Command 
 {
 public:
 	typedef std::shared_ptr<AdminHelp> ptr;
@@ -35,7 +35,7 @@ private:
 	bool m_isError = false;
 };
 
-class AdminList : public Command
+class AdminList : public qff233::Command
 {
 public:
 	typedef std::shared_ptr<AdminList> ptr;

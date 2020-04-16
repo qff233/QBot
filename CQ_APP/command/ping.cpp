@@ -1,6 +1,6 @@
 #include "ping.h"
 
-namespace qff233 {
+namespace qbot {
 namespace command {
 
 Ping::Ping()

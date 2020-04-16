@@ -3,12 +3,12 @@
 #include <CQSDK.h>
 #include "../command.h"
 
-namespace qff233 
+namespace qbot
 {
 namespace command 
 {
 
-class Reload : public Command
+class Reload : public qff233:: Command
 {
 public:
 	typedef std::shared_ptr<Reload> ptr;

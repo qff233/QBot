@@ -5,10 +5,10 @@
 
 #include "../command.h"
 
-namespace qff233 {
+namespace qbot {
 namespace command {
 
-class Ping : public Command{
+class Ping : public qff233::Command{
 public:
 	typedef std::shared_ptr<Ping> ptr;
 	Ping();

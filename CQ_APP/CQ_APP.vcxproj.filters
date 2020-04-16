@@ -78,7 +78,6 @@
     <ClInclude Include="http\http.h">
       <Filter>http</Filter>
     </ClInclude>
-    <ClInclude Include="util.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="util">

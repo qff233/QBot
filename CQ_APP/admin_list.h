@@ -4,7 +4,7 @@
 
 #include "util/singleton.h"
 
-namespace qff233 
+namespace qbot 
 {
 
 class AdminList 
@@ -25,7 +25,7 @@ private:
 	std::vector<int64_t> m_list;
 };
 
-typedef Singleton<AdminList> AdminListMgr;
+typedef qff233::Singleton<AdminList> AdminListMgr;
 
 bool operator!=(const int64_t al, const AdminList& v);
 bool operator==(const int64_t al, const AdminList& v);

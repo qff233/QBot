@@ -6,7 +6,7 @@
 #include "../admin_list.h"
 #include "../util/common.h"
 
-namespace qff233 {
+namespace qbot {
 namespace command
 {
 
@@ -67,6 +67,9 @@ namespace command
 			return;
 		}
 		std::string str = e.message.substr(13, e.message.size() - 13);
+		if (str[0] == '[') {
+			str = str.substr(10, str.size() - 11);
+		}
 		try {
 			if (!AdminListMgr::GetInstance()->delAdmin(std::stoll(str))) {
 				e.sendMsg("文件操作有问题!!!");
@@ -95,7 +98,7 @@ AdminHelp::AdminHelp()
 	{
 		m_help += (str + "\n");
 	}
-	m_help = utf82gbk(m_help.c_str());
+	m_help = qff233::utf82gbk(m_help.c_str());
 	ss.close();
 }
 
@@ -113,7 +116,7 @@ AdminHelp::reload()
 	{
 		m_help += (str + "\n");
 	}
-	m_help = utf82gbk(m_help.c_str());
+	m_help = qff233::utf82gbk(m_help.c_str());
 	ss.close();
 }
 

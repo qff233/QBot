@@ -6,12 +6,6 @@
 
 MUST_AppInfo_RETURN(APP_ID)
 
-
-
-//请加上static,表示这个logger只有本cpp有效
-static Logger logger("酷Q样例应用");
-
-
 EVE_Startup_EX(Startup)
 //name:酷Q启动
 //priority:30000
@@ -26,7 +20,6 @@ priority为事件优先级(参见 cq.im/deveventpriority)
 */
 
 {
-	logger.Info("Startup");
 	qff233::InitLogger();
 	qff233::init();
 	//本函数在执行周期最多只会执行一次
@@ -42,7 +35,6 @@ EVE_Enable_EX(Enable)
 //name:禁用将无法加载数据
 //priority:30000
 {
-	logger.Info("Enable");
 	//应用有可能多次启用
 	//可以在这里加载运行周期内才需要的资源
 }
@@ -56,7 +48,6 @@ EVE_Disable_EX(Disable)
 //name:禁用将不能保存数据
 //priority:30000
 {
-	logger.Info("Disable");
 	//应用有可能多次停止
 	//停止后dll还会继续运行
 	//但是收不到任何事件也不能调用任何API
@@ -71,6 +62,5 @@ EVE_Exit_EX(Exit)
 //name:退出清理
 //priority:30000
 {
-	logger.Info("Exit");
 	//本函数执行以后,酷Q会短时间内结束运行
 }

@@ -38,7 +38,6 @@
     <ClInclude Include="http\http.h" />
     <ClInclude Include="socket\address.h" />
     <ClInclude Include="socket\socket.h" />
-    <ClInclude Include="util.h" />
     <ClInclude Include="util\common.h" />
     <ClInclude Include="util\config.h" />
     <ClInclude Include="util\singleton.h" />

@@ -13,17 +13,17 @@ void init()
 	auto cmdMgr = qff233::CommandMgr::GetInstance();
 
 #define ADDCMD(name, clazz) \
-	cmdMgr->addCommand(name, clazz::ptr(new clazz))
+	cmdMgr->addCommand(name, ::qbot::command::clazz::ptr(new ::qbot::command::clazz))
 
 #define ADDGCMD(name, clazz) \
-	cmdMgr->addGlobCommand(name, clazz::ptr(new clazz))
+	cmdMgr->addGlobCommand(name, ::qbot::command::clazz::ptr(new ::qbot::command::clazz))
 
-	ADDCMD(".q reload", command::Reload);
-	ADDCMD(".q admin help", command::AdminHelp);
-	ADDCMD(".q admin list", command::AdminList);
-	ADDGCMD(".q admin add", command::AddAdmin);
-	ADDGCMD(".q admin del", command::DelAdmin);
-	ADDCMD(".q ping", command::Ping);
+	ADDCMD(".q reload", Reload);
+	ADDCMD(".q admin help", AdminHelp);
+	ADDCMD(".q admin list", AdminList);
+	ADDGCMD(".q admin add", AddAdmin);
+	ADDGCMD(".q admin del", DelAdmin);
+	ADDCMD(".q ping", Ping);
 
 #undef ADDCMD
 #undef ADDGCMD
@@ -32,18 +32,18 @@ void init()
 void reload()
 {
 	qff233::Config::LoadConfigFromFile("config.ini");
-	AdminListMgr::GetInstance()->reload();
+	qbot::AdminListMgr::GetInstance()->reload();
 
 	auto help_cmd = qff233::CommandMgr::GetInstance()->getDefault();
 	std::dynamic_pointer_cast<qff233::NotFoundCommand>(help_cmd)->reload();
 
 	auto admin_help_cmd = qff233::CommandMgr::GetInstance()->getCommand(".q admin help");
-	std::dynamic_pointer_cast<qff233::command::AdminHelp>(admin_help_cmd)->reload();
+	std::dynamic_pointer_cast<qbot::command::AdminHelp>(admin_help_cmd)->reload();
 }
 
 void handle(MsgEvent& e)
 {
-	handle_event::Repeat::run(&e);
+	qff233::handle_event::Repeat::run(&e);
 }
 
 }

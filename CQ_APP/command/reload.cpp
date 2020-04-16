@@ -5,7 +5,7 @@
 #include "../admin_list.h"
 #include "../util/common.h"
 
-namespace qff233 {
+namespace qbot {
 namespace command {
 
 Reload::Reload()
