@@ -83,6 +83,7 @@ FileStoreString::delLine(const std::string& value)
 void
 FileStoreString::load()
 {
+	m_content.clear();
 	//GetLogger()->Debug("FileStoreString::load");
 	std::ifstream ifs;
 	ifs.open(m_fileName);
@@ -176,6 +177,7 @@ void
 FileStoreInt64::load()
 {
 	//GetLogger()->Debug("FileStoreInt64::load");
+	m_content.clear();
 	std::ifstream ifs;
 	ifs.open(m_fileName);
 	if (!ifs.is_open()) {
