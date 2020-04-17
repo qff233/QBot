@@ -13,7 +13,7 @@ Test::Test()
 void 
 Test::handle(MsgEvent& e)
 {
-	std::string a = qff233::FileStoreMgr::GetInstance()->print();
+	std::string a = qff233::FileStore::print();
 	e.sendMsg(a);
 }
 

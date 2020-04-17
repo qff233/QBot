@@ -11,15 +11,14 @@ namespace qff233 {
 
 void init()
 {
-	auto fileMgr = qff233::FileStoreMgr::GetInstance();
 #define ADDFILESTORE(type, name, file_name) \
-	fileMgr->AddFile<qff233::type>(name, file_name)
+	qff233::FileStore::AddFile<qff233::type>(name, file_name)
 
 	ADDFILESTORE(FileStoreString , "NotFoundCommand", "help.txt");
 	ADDFILESTORE(FileStoreInt64, "AdminList", "adminlist.txt");
 	ADDFILESTORE(FileStoreString, "AdminHelp", "adminhelp.txt");
 
-	fileMgr->AddCallBack<FileStoreInt64>("AdminList", [](int32_t v) {
+	qff233::FileStore::AddCallBack<FileStoreInt64>("AdminList", [](int32_t v) {
 		if (v == 2) {
 			qff233::GetLogger()->Warning("AdminList 文件IO有问题！！");
 		}
@@ -28,7 +27,7 @@ void init()
 		}
 		});
 
-	fileMgr->AddCallBack<FileStoreString>("AdminHelp", [](int32_t v) {
+	qff233::FileStore::AddCallBack<FileStoreString>("AdminHelp", [](int32_t v) {
 		if (v == 2) {
 			qff233::GetLogger()->Error("AdminHelp 文件IO出问题");
 		}
@@ -39,7 +38,7 @@ void init()
 #undef ADDFILESTORE
 
 	qff233::Config::LoadConfigFromFile("config.ini");
-	qff233::FileStoreMgr::GetInstance()->Load();
+	qff233::FileStore::Load();
 
 	auto cmdMgr = qff233::CommandMgr::GetInstance();
 #define ADDCMD(name, clazz) \
@@ -62,7 +61,7 @@ void init()
 void reload()
 {
 	qff233::Config::LoadConfigFromFile("config.ini");
-	qff233::FileStoreMgr::GetInstance()->Load();
+	qff233::FileStore::Load();
 	//qbot::AdminListMgr::GetInstance()->reload();
 	//auto help_cmd = qff233::CommandMgr::GetInstance()->getDefault();
 	//std::dynamic_pointer_cast<qff233::NotFoundCommand>(help_cmd)->reload();

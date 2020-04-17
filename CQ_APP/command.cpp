@@ -121,7 +121,8 @@ CommandDispatch::getMatchedCommand(const std::string& name)
 	}
 	for (auto it = m_globs.begin(); it != m_globs.end(); ++it)
 	{
-		if (name.substr(0, it->first.size()) == it->first) {
+		if(std::string_view(name.c_str(), it->first.size()) == it->first) {
+		//if (name.substr(0, it->first.size()) == it->first) {
 			return it->second;
 		}
 	}
@@ -138,7 +139,7 @@ void
 NotFoundCommand::handle(CQ::MsgEvent& e)
 {
 	try {
-		auto it = FileStoreMgr::GetInstance()->GetFile<qff233::FileStoreString>("NotFoundCommand");
+		auto it = FileStore::GetFile<qff233::FileStoreString>("NotFoundCommand");
 		const std::string& msg = it->getContent();
 		e.sendMsg(msg);
 	}

@@ -7,24 +7,24 @@ namespace qff233
 {
 	
 
-FileStore::FileStore(const std::string& file_name)
+FileStoreVar::FileStoreVar(const std::string& file_name)
 	:m_fileName(file_name)
 { }
 
 void 
-FileStore::addCallBack(const CallBackType& cb)
+FileStoreVar::addCallBack(const CallBackType& cb)
 {
 	m_cbs.push_back(cb);
 }
 
 void 
-FileStore::clearCallBack(const CallBackType& cb)
+FileStoreVar::clearCallBack(const CallBackType& cb)
 {
 	m_cbs.clear();
 }
 
 FileStoreString::FileStoreString(const std::string file_name)
-	:FileStore(file_name) 
+	:FileStoreVar(file_name)
 { }
 
 void 
@@ -105,7 +105,7 @@ FileStoreString::load()
 }
 
 FileStoreInt64::FileStoreInt64(const std::string file_name)
-	:FileStore(file_name) 
+	:FileStoreVar(file_name)
 { }
 
 void 
@@ -197,7 +197,7 @@ FileStoreInt64::load()
 }
 
 void
-FileStoreManager::Load()
+FileStore::Load()
 {
 
 	//GetLogger()->Debug("FileStoreManager::Load begin");

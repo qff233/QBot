@@ -42,7 +42,7 @@ AdminList::addAdmin(int64_t v)
 	//ss.close();
 
 	//m_list.push_back(v);
-	auto it = qff233::FileStoreMgr::GetInstance()->GetFile<qff233::FileStoreInt64>("AdminList");
+	auto it = qff233::FileStore::GetFile<qff233::FileStoreInt64>("AdminList");
 	it->addLine(v);
 	return true;
 }
@@ -50,7 +50,7 @@ AdminList::addAdmin(int64_t v)
 bool
 AdminList::delAdmin(int64_t v)
 {
-	auto it = qff233::FileStoreMgr::GetInstance()->GetFile<qff233::FileStoreInt64>("AdminList");
+	auto it = qff233::FileStore::GetFile<qff233::FileStoreInt64>("AdminList");
 	it->delLine(v);
 	return true;
 	//std::string str;
@@ -98,7 +98,7 @@ AdminList::delAdmin(int64_t v)
 const std::vector<int64_t>& 
 AdminList::getList() const
 {
-	auto fsi = qff233::FileStoreMgr::GetInstance()->GetFile<qff233::FileStoreInt64>("AdminList");
+	auto fsi = qff233::FileStore::GetFile<qff233::FileStoreInt64>("AdminList");
 	if (fsi) {
 		
 		return fsi->getContent();

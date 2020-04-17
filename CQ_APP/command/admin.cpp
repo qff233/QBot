@@ -118,7 +118,7 @@ AdminHelp::handle(MsgEvent& e)
 		e.message_block();
 		return;
 	}
-	auto fss = qff233::FileStoreMgr::GetInstance()->GetFile<qff233::FileStoreString>("AdminHelp");
+	auto fss = qff233::FileStore::GetFile<qff233::FileStoreString>("AdminHelp");
 	const std::string& msg = fss->getContent();
 	e.sendMsg(msg);
 	e.message_block();

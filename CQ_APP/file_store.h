@@ -15,16 +15,16 @@ namespace qff233
 
 class FileStoreManager;
 
-class FileStore 
+class FileStoreVar
 {
 public:
 	friend FileStoreManager;
-	typedef std::shared_ptr<FileStore> ptr;
+	typedef std::shared_ptr<FileStoreVar> ptr;
 	// 1:删除对应未存在;添加对应已存在    2:文件IO有问题     0:成功
 	typedef std::function<void(int32_t)> CallBackType;
 	
-	FileStore(const std::string& file_name);
-	virtual ~FileStore() { }
+	FileStoreVar(const std::string& file_name);
+	virtual ~FileStoreVar() { }
 
 	virtual void load() = 0;
 
@@ -35,7 +35,7 @@ protected:
 	std::vector<CallBackType> m_cbs;
 };
 
-class FileStoreString : public FileStore 
+class FileStoreString : public FileStoreVar
 {
 public:
 	typedef std::shared_ptr<FileStoreString> ptr;
@@ -50,7 +50,7 @@ private:
 	std::string m_content;
 };
 
-class FileStoreInt64 : public FileStore
+class FileStoreInt64 : public FileStoreVar
 {
 public:
 	typedef std::shared_ptr<FileStoreInt64> ptr;
@@ -65,14 +65,14 @@ private:
 	std::vector<int64_t> m_content;
 };
 
-class FileStoreManager
+class FileStore
 {
 public:
-	typedef std::unordered_map<std::string, FileStore::ptr> DataType;
+	typedef std::unordered_map<std::string, FileStoreVar::ptr> DataType;
 	
 	static void Load();
 
-	static void AddFile(const std::string& name, FileStore::ptr fs) 
+	static void AddFile(const std::string& name, FileStoreVar::ptr fs) 
 	{
 		GetDatas()[name] = fs;
 		//GetLogger()->Debug("AddFile");
@@ -106,7 +106,7 @@ public:
 	}
 
 	template<class T>
-	static void AddCallBack(const std::string& name, const FileStore::CallBackType& cb)
+	static void AddCallBack(const std::string& name, const FileStoreVar::CallBackType& cb)
 	{
 		auto it = GetFile<T>(name);
 		it->addCallBack(cb);
@@ -117,7 +117,5 @@ private:
 		return v;
 	}
 };
-
-typedef Singleton<FileStoreManager> FileStoreMgr;
 
 }
