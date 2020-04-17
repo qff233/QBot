@@ -4,6 +4,7 @@
 #include "util/time_manager.h"
 #include "util/common.h"
 #include "file_store.h"
+#include "block_list.h"
 
 
 namespace qff233 
@@ -29,20 +30,20 @@ CommandDispatch::CommandDispatch()
 bool
 CommandDispatch::handle(CQ::MsgEvent& e)
 {
+	if (e.fromAccount == *qbot::BlockListMgr::GetInstance()) {
+		return true;
+	}
 	if (!qff233::TimeMgr::GetInstance()->isActive(e)) {
 		e.message_block();
-		return 0;
+		return true;
 	}
 	if (e.message.substr(0, 2) != ".q") {
-		return 0;
+		return false;
 	}
 	qff233::TimeMgr::GetInstance()->upTime(e);
-	auto cmd = getMatchedCommand(e.message);
-	if(cmd) {
-		cmd->handle(e);
-		return true; 
-	}
-	return false;
+	auto cmd = this->getMatchedCommand(e.message);
+	cmd->handle(e);
+	return true; 
 }
 
 void
@@ -114,8 +115,8 @@ CommandDispatch::getGlobCommand(const std::string& name)
 
 Command::ptr
 CommandDispatch::getMatchedCommand(const std::string& name)
-{
-	auto mit = m_datas.find(name);
+{									
+	auto mit = m_datas.find(name);				//.q xxx
 	if (mit != m_datas.end()) {
 		return mit->second;
 	}

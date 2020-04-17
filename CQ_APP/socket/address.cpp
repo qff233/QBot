@@ -34,7 +34,7 @@ namespace qff233
 	}
 
 	IPAddress::ptr
-		IPAddress::Create(const sockaddr* addr, socklen_t addrlen)
+	IPAddress::Create(const sockaddr* addr, socklen_t addrlen)
 	{
 		if (addr == nullptr)
 			return nullptr;

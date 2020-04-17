@@ -37,9 +37,6 @@ public:
 	typedef std::shared_ptr<AdminList> ptr;
 	AdminList();
 	void handle(MsgEvent& e) override;
-private:
-	std::string m_help;
-	bool m_isError = false;
 };
 
 }

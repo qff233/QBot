@@ -8,29 +8,8 @@
 namespace qbot
 {
 
-AdminList::AdminList()
-{	
-
-	//std::ifstream ss;
-	//std::string str;
-	//ss.open("adminlist.txt");
-	//if (!ss.is_open()) {
-	//	qff233::GetLogger()->Error("open adminlist.txt error");
-	//	return;
-	//}
-	//while (std::getline(ss, str))
-	//{
-	//	try {
-	//		m_list.push_back(std::stoll(str));
-	//	} catch (const std::exception& e) {
-	//		qff233::GetLogger()->Error(std::string("Adminlist::Adminlist error  ") + e.what());
-	//	}
-	//}
-	//ss.close();
-}
-
 bool
-AdminList::addAdmin(int64_t v)
+AdminList::add(int64_t v)
 {
 	//std::ofstream ss;
 	//ss.open("adminlist.txt", std::ios::app);
@@ -43,14 +22,22 @@ AdminList::addAdmin(int64_t v)
 
 	//m_list.push_back(v);
 	auto it = qff233::FileStore::GetFile<qff233::FileStoreInt64>("AdminList");
+	if (!it)
+	{
+		return false;
+	}
 	it->addLine(v);
 	return true;
 }
 
 bool
-AdminList::delAdmin(int64_t v)
+AdminList::del(int64_t v)
 {
 	auto it = qff233::FileStore::GetFile<qff233::FileStoreInt64>("AdminList");
+	if (!it)
+	{
+		return false;
+	}
 	it->delLine(v);
 	return true;
 	//std::string str;
@@ -96,7 +83,7 @@ AdminList::delAdmin(int64_t v)
 }
 
 const std::vector<int64_t>& 
-AdminList::getList() const
+AdminList::get() const
 {
 	auto fsi = qff233::FileStore::GetFile<qff233::FileStoreInt64>("AdminList");
 	if (fsi) {
@@ -108,7 +95,7 @@ AdminList::getList() const
 
 bool AdminList::operator==(int64_t rhs) const
 {
-	for (const auto& i : this->getList()) {
+	for (const auto& i : this->get()) {
 		if (rhs == i) {
 			return true;
 		}

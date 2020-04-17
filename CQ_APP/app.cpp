@@ -5,6 +5,7 @@
 #include "command/ping.h"
 #include "command/reload.h"
 #include "command/admin.h"
+#include "command/block.h"
 #include "command/test.h"
 
 namespace qff233 {
@@ -16,6 +17,7 @@ void init()
 
 	ADDFILESTORE(FileStoreString , "NotFoundCommand", "help.txt");
 	ADDFILESTORE(FileStoreInt64, "AdminList", "adminlist.txt");
+	ADDFILESTORE(FileStoreInt64, "BlockList", "blocklist.txt");
 	ADDFILESTORE(FileStoreString, "AdminHelp", "adminhelp.txt");
 
 	qff233::FileStore::AddCallBack<FileStoreInt64>("AdminList", [](int32_t v) {
@@ -51,11 +53,17 @@ void init()
 	ADDCMD(".q admin list", AdminList);
 	ADDGCMD(".q admin add", AddAdmin);
 	ADDGCMD(".q admin del", DelAdmin);
+
+	ADDCMD(".q block list", BlockList);
+	ADDGCMD(".q block add", AddBlock);
+	ADDGCMD(".q block del", DelBlock);
+
 	ADDCMD(".q ping", Ping);
 	ADDCMD(".q test", Test);
 
 #undef ADDCMD
 #undef ADDGCMD
+	GetLogger()->Info("init done");
 }
 
 void reload()

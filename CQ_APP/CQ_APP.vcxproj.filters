@@ -15,12 +15,6 @@
     <ClCompile Include="util\common.cpp">
       <Filter>util</Filter>
     </ClCompile>
-    <ClCompile Include="util\config.cpp">
-      <Filter>util</Filter>
-    </ClCompile>
-    <ClCompile Include="util\time_manager.cpp">
-      <Filter>util</Filter>
-    </ClCompile>
     <ClCompile Include="handle_event\repeat.cpp">
       <Filter>handle_event</Filter>
     </ClCompile>
@@ -49,6 +43,19 @@
     <ClCompile Include="command\test.cpp">
       <Filter>command</Filter>
     </ClCompile>
+    <ClCompile Include="util\config.cpp">
+      <Filter>qff233</Filter>
+    </ClCompile>
+    <ClCompile Include="util\time_manager.cpp">
+      <Filter>qff233</Filter>
+    </ClCompile>
+    <ClCompile Include="block_list.cpp" />
+    <ClCompile Include="command\block.cpp">
+      <Filter>command</Filter>
+    </ClCompile>
+    <ClCompile Include="http_client.cpp">
+      <Filter>qff233</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="appVer.h" />
@@ -59,15 +66,6 @@
       <Filter>command</Filter>
     </ClInclude>
     <ClInclude Include="util\common.h">
-      <Filter>util</Filter>
-    </ClInclude>
-    <ClInclude Include="util\singleton.h">
-      <Filter>util</Filter>
-    </ClInclude>
-    <ClInclude Include="util\time_manager.h">
-      <Filter>util</Filter>
-    </ClInclude>
-    <ClInclude Include="util\config.h">
       <Filter>util</Filter>
     </ClInclude>
     <ClInclude Include="handle_event\repeat.h">
@@ -97,6 +95,20 @@
     </ClInclude>
     <ClInclude Include="command\test.h">
       <Filter>command</Filter>
+    </ClInclude>
+    <ClInclude Include="util\config.h">
+      <Filter>qff233</Filter>
+    </ClInclude>
+    <ClInclude Include="util\time_manager.h">
+      <Filter>qff233</Filter>
+    </ClInclude>
+    <ClInclude Include="util\singleton.h" />
+    <ClInclude Include="block_list.h" />
+    <ClInclude Include="command\block.h">
+      <Filter>command</Filter>
+    </ClInclude>
+    <ClInclude Include="http_client.h">
+      <Filter>qff233</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

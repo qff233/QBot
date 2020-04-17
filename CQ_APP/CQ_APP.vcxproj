@@ -16,12 +16,16 @@
     <ClCompile Include="appinfo.h" />
     <ClCompile Include="appmain.cpp" />
     <ClInclude Include="admin_list.h" />
+    <ClInclude Include="block_list.h" />
     <ClInclude Include="command.h" />
     <ClInclude Include="command\admin.h" />
+    <ClInclude Include="command\block.h" />
     <ClInclude Include="command\ping.h" />
     <ClInclude Include="command\reload.h" />
+    <ClCompile Include="block_list.cpp" />
     <ClCompile Include="command.cpp" />
     <ClCompile Include="command\admin.cpp" />
+    <ClCompile Include="command\block.cpp" />
     <ClCompile Include="command\ping.cpp" />
     <ClCompile Include="command\reload.cpp" />
     <ClCompile Include="command\test.cpp" />
@@ -29,6 +33,7 @@
     <ClCompile Include="file_store.cpp" />
     <ClCompile Include="handle_event\repeat.cpp" />
     <ClCompile Include="http\http.cpp" />
+    <ClCompile Include="http_client.cpp" />
     <ClCompile Include="Msg.cpp" />
     <ClCompile Include="socket\address.cpp" />
     <ClCompile Include="socket\socket.cpp" />
@@ -40,6 +45,7 @@
     <ClInclude Include="file_store.h" />
     <ClInclude Include="handle_event\repeat.h" />
     <ClInclude Include="http\http.h" />
+    <ClInclude Include="http_client.h" />
     <ClInclude Include="socket\address.h" />
     <ClInclude Include="socket\socket.h" />
     <ClInclude Include="util\common.h" />

@@ -1,21 +1,20 @@
-#include "admin.h"
+#include "block.h"
 
-#include <fstream>
 #include <sstream>
 
 #include "../admin_list.h"
-#include "../util/common.h"
-#include "../file_store.h"
+#include "../block_list.h"
 
 namespace qbot {
-namespace command
+namespace command 
 {
 
-AddAdmin::AddAdmin()
-	:Command("AddAdmin") { }
+AddBlock::AddBlock()
+    :Command("AddBlock") 
+{ }
 
-void
-	AddAdmin::handle(MsgEvent& e)
+void 
+AddBlock::handle(MsgEvent& e)
 {
 	if (e.message.size() < 15) {
 		e.sendMsg("无效的账号");
@@ -33,12 +32,12 @@ void
 	}
 	try {
 		int64_t account = std::stoll(str);
-		if (account == *AdminListMgr::GetInstance()) {
+		if (account == *BlockListMgr::GetInstance()) {
 			e.sendMsg("已经有该账号了，不要重复添加！");
 			e.message_block();
 			return;
 		}
-		if (!AdminListMgr::GetInstance()->add(account)) {
+		if (!BlockListMgr::GetInstance()->add(account)) {
 			e.sendMsg("文件操作有问题!!!");
 			e.message_block();
 		}
@@ -51,11 +50,12 @@ void
 	}
 }
 
-DelAdmin::DelAdmin()
-	:Command("DelAdmin") { }
+DelBlock::DelBlock()
+    :Command("DelBlock") 
+{ }
 
-void
-	DelAdmin::handle(MsgEvent& e)
+void 
+DelBlock::handle(MsgEvent& e)
 {
 	if (e.message.size() < 15) {
 		e.sendMsg("无效的账号");
@@ -72,12 +72,12 @@ void
 		str = str.substr(10, str.size() - 11);
 	}
 	try {
-		if (std::stoll(str) != *AdminListMgr::GetInstance()) {
-			e.sendMsg("这个人不是管理员");
+		if (std::stoll(str) != *BlockListMgr::GetInstance()) {
+			e.sendMsg("这个人在黑名单中");
 			e.message_block();
 			return;
 		}
-		if (!AdminListMgr::GetInstance()->del(std::stoll(str))) {
+		if (!BlockListMgr::GetInstance()->del(std::stoll(str))) {
 			e.sendMsg("文件操作有问题!!!");
 			e.message_block();
 		}
@@ -90,52 +90,19 @@ void
 	}
 }
 
-AdminHelp::AdminHelp()
-	:Command("AdminHelp") 
-{ 
-
-
-	//std::ifstream ss;
-	//ss.open("adminhelp.txt");
-	//if (!ss.is_open()) {
-	//	m_isError = true;
-	//	return;
-	//}
-	//std::string str;
-	//while (std::getline(ss, str))
-	//{
-	//	m_help += (str + "\n");
-	//}
-	//m_help = qff233::utf82gbk(m_help.c_str());
-	//ss.close();
-}
+BlockList::BlockList()
+    :Command("BlockList") 
+{ }
 
 void
-AdminHelp::handle(MsgEvent& e)
+BlockList::handle(MsgEvent& e)
 {
 	if (e.fromAccount != *AdminListMgr::GetInstance()) {
 		e.sendMsg("不是管理员。查什么查？");
 		e.message_block();
 		return;
 	}
-	auto fss = qff233::FileStore::GetFile<qff233::FileStoreString>("AdminHelp");
-	const std::string& msg = fss->getContent();
-	e.sendMsg(msg);
-	e.message_block();
-}
-
-AdminList::AdminList()
-	:Command("AdminList") { }
-
-void
-AdminList::handle(MsgEvent& e)
-{
-	if (e.fromAccount != *AdminListMgr::GetInstance()) {
-		e.sendMsg("不是管理员。查什么查？");
-		e.message_block();
-		return;
-	}
-	const auto& vecs = AdminListMgr::GetInstance()->get();
+	const auto& vecs = BlockListMgr::GetInstance()->get();
 	std::stringstream ss;
 	for (const auto& i : vecs) {
 		ss << i << std::endl;

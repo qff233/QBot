@@ -142,6 +142,7 @@ struct CaseInsensitiveLess
 
 class HttpRequest 
 {
+public:
     typedef std::shared_ptr<HttpRequest> ptr;
     typedef std::map<std::string, std::string, CaseInsensitiveLess> MapType;
 
@@ -170,9 +171,9 @@ class HttpRequest
     void setClose(bool v) { m_close = v; }
     void setWebSocket(bool v) { m_websocket = v; }
 
-    std::string getHeader(const std::string& key, const std::string& def = "") const;
-    std::string getParam(const std::string& key, const std::string& def = "") const;
-    std::string getCookie(const std::string& key, const std::string& def = "") const;
+    //std::string getHeader(const std::string& key, const std::string& def = "") const;
+    //std::string getParam(const std::string& key, const std::string& def = "") const;
+    //std::string getCookie(const std::string& key, const std::string& def = "") const;
 
     void setHeader(const std::string& key, const std::string& val);
     void setParam(const std::string& key, const std::string& val);

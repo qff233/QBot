@@ -75,26 +75,26 @@ HttpRequest::HttpRequest(uint8_t version, bool close)
      m_close(close)
 { }
 
-std::string
-HttpRequest::getHeader(const std::string& key, const std::string& def) const
-{
-    auto it = m_headers.find(key);
-    return it == m_headers.end() ? def : it->second;
-}
-
-std::string 
-HttpRequest::getParam(const std::string& key, const std::string& def) const
-{
-    auto it = m_params.find(key);
-    return it == m_params.end() ? def : it->second;
-}
-
-std::string 
-HttpRequest::getCookie(const std::string& key, const std::string& def) const
-{
-    auto it = m_cookies.find(key);
-    return it == m_headers.end() ? def : it->second;
-}
+//std::string
+//HttpRequest::getHeader(const std::string& key, const std::string& def) const
+//{
+//    auto it = m_headers.find(key);
+//    return it == m_headers.end() ? def : it->second;
+//}
+//
+//std::string 
+//HttpRequest::getParam(const std::string& key, const std::string& def) const
+//{
+//    auto it = m_params.find(key);
+//    return it == m_params.end() ? def : it->second;
+//}
+//
+//std::string 
+//HttpRequest::getCookie(const std::string& key, const std::string& def) const
+//{
+//    auto it = m_cookies.find(key);
+//    return it == m_headers.end() ? def : it->second;
+//}
 
 void 
 HttpRequest::setHeader(const std::string& key, const std::string& val)
